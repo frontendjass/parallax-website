@@ -3,7 +3,6 @@ import { ReactLenis, useLenis } from 'lenis/react';
 
 function App() {
   const lenis = useLenis(({ scroll }) => {
-    // called every scroll
   });
 
   return (

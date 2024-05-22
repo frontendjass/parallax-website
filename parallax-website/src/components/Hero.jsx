@@ -1,9 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-import parallaxImg1 from '../assets/parallax2/1.png';
-import parallaxImg2 from '../assets/parallax2/2.png';
-import parallaxImg3 from '../assets/parallax2/3.png';
-import parallaxImg4 from '../assets/parallax2/4.png';
+import parallaxImg1 from '../assets/parallax2/1.webp';
+import parallaxImg2 from '../assets/parallax2/2.webp';
+import parallaxImg3 from '../assets/parallax2/3.webp';
+import parallaxImg4 from '../assets/parallax2/4.webp';
 
 export default function Hero() {
   const parallax1 = {
@@ -41,13 +41,13 @@ export default function Hero() {
   );
   const textOpacity = useTransform(scrollY, [0, 100], [0, 1]);
 
-  const yImage = useTransform(scrollY, [0, 200], [0, -500]);
+  const yImage = useTransform(scrollY, [0, 500], [0, -1500]);
 
-  const yImage2 = useTransform(scrollY, [0, 500, 1000], [-100, 200, 400]);
+  const yImage2 = useTransform(scrollY, [0, 500], [0, -200]);
 
-  const yImage3 = useTransform(scrollY, [0, 500, 1000], [-100, 300, 800]);
+  const yImage3 = useTransform(scrollY, [0, 500], [0, -50]);
 
-  const yImage4 = useTransform(scrollY, [0, 500, 1000], [-50, 500, 1000]);
+  const yImage4 = useTransform(scrollY, [0, 500], [0, 500]);
 
   return (
     <section className='overflow-x-hidden'>
@@ -62,11 +62,7 @@ export default function Hero() {
         </div>
         <div className='w-full h-full absolute top-[-60vh]'>
           <motion.div
-            style={{ ...parallax1, y: yImage }}
-            className='w-full h-full absolute'
-          ></motion.div>
-          <motion.div
-            style={{ ...parallax2, y: yImage2 }}
+            style={{ ...parallax4, y: yImage4 }}
             className='w-full h-full absolute'
           ></motion.div>
           <motion.div
@@ -74,9 +70,18 @@ export default function Hero() {
             className='w-full h-full absolute'
           ></motion.div>
           <motion.div
-            style={{ ...parallax4, y: yImage4 }}
+            style={{ ...parallax2, y: yImage2 }}
             className='w-full h-full absolute'
           ></motion.div>
+          <div>
+            <motion.div
+              style={{ ...parallax1, y: yImage }}
+              className='w-full h-full absolute'
+            ></motion.div>
+            <motion.div 
+              style={{y: yImage}}
+              className='w-screen h-[200vh] top-[2300px] z-[3] absolute bg-matcha-900'></motion.div>
+          </div>
         </div>
       </div>
     </section>
